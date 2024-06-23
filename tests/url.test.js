@@ -3,6 +3,7 @@ const app = require('../src/app');
 const sequelize = require('../src/config/db');
 const Url = require('../src/models/urlModel');
 
+
 beforeAll(async () => {
   await sequelize.sync({ force: true });
 });
