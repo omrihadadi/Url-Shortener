@@ -32,5 +32,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Test Database Connection
+        run: |
+          mysql -h ${{ secrets.DB_HOST }} -u ${{ secrets.DB_USER }} -p"${{ secrets.DB_PASS }}" -e "SELECT 'Connected successfully' AS Status;"
+
       - name: Run tests
         run: npm test
