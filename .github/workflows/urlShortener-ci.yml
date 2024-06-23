@@ -19,7 +19,6 @@ jobs:
       DB_USER: ${{ secrets.DB_USER }}
       DB_PASSWORD: ${{ secrets.DB_PASS }}
       DB_HOST: ${{ secrets.DB_HOST }}
-      PORT: ${{ secrets.PORT }}
 
     steps:
       - name: Checkout repository 
