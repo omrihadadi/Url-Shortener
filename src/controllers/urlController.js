@@ -6,6 +6,7 @@ const createShortUrl = async (req, res) => {
 
   try {
     const shortUrl = generateShortUrl();
+    console.log(shortUrl);
     const newUrl = await Url.create({ originalUrl, shortUrl });
     res.status(201).json(newUrl);
   } catch (error) {
