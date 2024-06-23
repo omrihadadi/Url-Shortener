@@ -32,8 +32,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Test Network Connectivity
+        run: |
+          echo "Pinging MySQL server..."
+          ping -c 4 ${{ secrets.DB_HOST }}
+          echo "Checking if MySQL port 3306 is open..."
+          nc -zv ${{ secrets.DB_HOST }} 3306
+
       - name: Test MySQL Connection
         run: |
+          echo "Testing MySQL connection..."
           mysql -h ${{ secrets.DB_HOST }} -u ${{ secrets.DB_USER }} -p"${{ secrets.DB_PASS }}" -e "SELECT 'Connected successfully' AS Status;"
 
       - name: Run tests
